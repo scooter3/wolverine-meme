@@ -4,7 +4,7 @@
 }
 
 .image-combiner h2 {
-  color: #333;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
 }
@@ -96,7 +96,7 @@
 }
 
 .instructions {
-  color: #666;
+  color: #e0e0e0;
   font-size: 0.95rem;
   font-style: italic;
   margin: 1rem 0;
@@ -140,7 +140,7 @@
 }
 
 .loading-message {
-  color: #666;
+  color: #e0e0e0;
   font-size: 1rem;
   margin: 1rem 0;
 }

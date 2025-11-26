@@ -4,9 +4,13 @@
 }
 
 .player-search h1 {
-  color: #333;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   font-size: 2rem;
+}
+
+.player-search h2 {
+  color: #ffffff;
 }
 
 .input-mode-tabs {
