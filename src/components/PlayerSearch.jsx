@@ -67,9 +67,9 @@ function PlayerSearch({ onSearch, onDirectImage, isLoading }) {
     }
   };
 
-  // Listen for paste events when in paste mode
+  // Listen for paste events when in upload mode
   useEffect(() => {
-    if (inputMode !== 'paste') return;
+    if (inputMode !== 'upload') return;
 
     const handlePasteEvent = async (e) => {
       e.preventDefault();
@@ -118,13 +118,7 @@ function PlayerSearch({ onSearch, onDirectImage, isLoading }) {
           className={`tab-button ${inputMode === 'upload' ? 'active' : ''}`}
           onClick={() => setInputMode('upload')}
         >
-          Upload Image
-        </button>
-        <button
-          className={`tab-button ${inputMode === 'paste' ? 'active' : ''}`}
-          onClick={() => setInputMode('paste')}
-        >
-          Paste Image
+          Upload / Paste Image
         </button>
         <button
           className={`tab-button ${inputMode === 'url' ? 'active' : ''}`}
@@ -153,10 +147,13 @@ function PlayerSearch({ onSearch, onDirectImage, isLoading }) {
       )} */}
 
       {inputMode === 'upload' && (
-        <div className="upload-box">
-          <label htmlFor="file-upload" className="upload-label">
+        <div className="upload-paste-box">
+          <label htmlFor="file-upload" className="upload-paste-label">
             <span className="upload-icon">📁</span>
-            <span>Click to upload an image</span>
+            <span className="upload-title">Click to upload or paste an image</span>
+            <span className="upload-hint">
+              Click to browse files, or press Ctrl+V (Cmd+V on Mac) to paste
+            </span>
             <span className="upload-hint">JPG, PNG, GIF up to 10MB</span>
           </label>
           <input
@@ -166,19 +163,9 @@ function PlayerSearch({ onSearch, onDirectImage, isLoading }) {
             onChange={handleFileUpload}
             className="file-input"
           />
-        </div>
-      )}
-
-      {inputMode === 'paste' && (
-        <div className="paste-box">
-          <div className="paste-area">
-            <span className="paste-icon">📋</span>
-            <span className="paste-title">Paste from Clipboard</span>
-            <span className="paste-hint">Press Ctrl+V (or Cmd+V on Mac) to paste</span>
-            <button onClick={handlePasteFromClipboard} className="paste-button">
-              Or Click to Paste
-            </button>
-          </div>
+          <button onClick={handlePasteFromClipboard} className="paste-button-alt">
+            Or Click Here to Paste from Clipboard
+          </button>
         </div>
       )}
 
