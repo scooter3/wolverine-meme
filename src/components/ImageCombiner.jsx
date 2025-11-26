@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import '../styles/ImageCombiner.css';
 
-function ImageCombiner({ playerImage, frameImagePath = '/wolverine.png' }) {
+function ImageCombiner({ playerImage, frameImagePath }) {
+  // Use Vite's BASE_URL to handle GitHub Pages deployment
+  const defaultFramePath = `${import.meta.env.BASE_URL}wolverine.png`;
+  const framePath = frameImagePath || defaultFramePath;
   const canvasRef = useRef(null);
   const playerImgRef = useRef(null);
   const frameImgRef = useRef(null);
@@ -44,7 +47,7 @@ function ImageCombiner({ playerImage, frameImagePath = '/wolverine.png' }) {
         await new Promise((resolve, reject) => {
           frameImg.onload = resolve;
           frameImg.onerror = () => reject(new Error('Failed to load frame image. Make sure wolverine.png is in the public folder.'));
-          frameImg.src = frameImagePath;
+          frameImg.src = framePath;
         });
 
         // Set canvas dimensions from frame
@@ -114,7 +117,7 @@ function ImageCombiner({ playerImage, frameImagePath = '/wolverine.png' }) {
     };
 
     loadImages();
-  }, [playerImage, frameImagePath]);
+  }, [playerImage, framePath]);
 
   // Draw canvas whenever transform changes
   const drawCanvas = useCallback(() => {

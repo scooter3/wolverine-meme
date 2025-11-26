@@ -176,7 +176,7 @@ function PlayerSearch({ onSearch, onDirectImage, isLoading }) {
               type="url"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
-              placeholder="Paste image URL (e.g., https://example.com/image.jpg)"
+              placeholder="Paste image URL"
               className="search-input"
             />
             <button type="submit" disabled={!imageUrl.trim()} className="search-button">
