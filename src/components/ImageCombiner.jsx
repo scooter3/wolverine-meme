@@ -281,7 +281,7 @@ function ImageCombiner({ playerImage, frameImagePath }) {
         </div>
       )}
 
-      {imagesLoaded && <p className="instructions">Drag the player image to reposition</p>}
+      {imagesLoaded && <p className="instructions">Drag the image to reposition</p>}
 
       {/* Canvas always rendered so it's available for loading */}
       <div
